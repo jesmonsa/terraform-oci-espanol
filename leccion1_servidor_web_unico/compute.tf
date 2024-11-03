@@ -17,7 +17,7 @@ resource "oci_core_instance" "tf_instance" {
   }
 
   metadata = {
-    ssh_authorized_keys = file(var.ssh_public_key_path)
+    ssh_authorized_keys = tls_private_key.public_private_key_pair.public_key_openssh
     user_data           = base64encode(file("./userdata/bootstrap"))
   }
 }
