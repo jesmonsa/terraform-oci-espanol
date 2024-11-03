@@ -1,7 +1,7 @@
 # Configuración de la instancia de cómputo 
 
 resource "oci_core_instance" "tf_instance" {
-  availability_domain = data.oci_identity_availability_domains.ADs.availability_domains[0].name
+  availability_domain = var.availability_domain.id
   compartment_id      = oci_identity_compartment.tf_compartment.id
   display_name        = "tf-server"
   shape               = var.instance_shape
@@ -13,7 +13,7 @@ resource "oci_core_instance" "tf_instance" {
 
   source_details {
     source_type = "image"
-    source_id   = var.instance_image_ocid[var.region]
+    source_id   = var.
   }
 
   metadata = {

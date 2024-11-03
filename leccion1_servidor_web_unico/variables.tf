@@ -22,15 +22,25 @@ variable "instance_shape" {
   default = "VM.Standard.E2.1.Micro"
 }
 
-variable "instance_image_ocid" {
-  type = map(string)
-  default = {
-    // Coloca aquí los OCIDs de las imágenes para cada región que uses
-    "us-phoenix-1" = "ocid1.image.oc1.phx.your_image_ocid_here"
-  }
-}
-
 variable "ssh_public_key_path" {
   description = "Path to the public SSH key"
   default     = "~/.ssh/id_rsa.pub"
+}
+
+variable "instance_os" { # definir el sistema operativo de la instancia
+  default = "Oracle Linux" # definir el valor por defecto
+}
+
+variable "linux_os_version" { # definir la versión del sistema operativo Linux
+  default = "7.9" # definir el valor por defecto
+}
+
+variable "service_ports" { # definir los puertos de los servicios
+  default = [80, 443, 22] # definir el valor por defecto
+}
+
+variable "availability_domain" {
+  description = "The Availability Domain to use for the instance"
+  type        = string
+  default     = "US-ASHBURN-AD-1"  # Reemplaza con tu AD correcto
 }
