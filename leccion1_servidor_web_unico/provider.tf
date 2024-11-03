@@ -1,9 +1,12 @@
-# Configuración del proveedor OCI 
-terraform { 
-  required_providers { 
+terraform {
+  required_providers {
     oci = {
-      source = "oracle/oci" 
-      version = "5.35.0" 
+      source  = "oracle/oci"
+      version = ">= 4.0.0"
+    }
+    tls = {
+      source  = "hashicorp/tls"
+      version = ">= 3.0.0"
     }
   }
 }
