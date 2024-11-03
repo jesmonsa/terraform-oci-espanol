@@ -1,0 +1,10 @@
+ 
+#!/bin/bash
+# Instalar Apache y iniciar el servicio
+sudo yum update -y
+sudo yum install -y httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+# Crear una página web simple
+echo "<html><body><h1>Bienvenido al servidor web de Terraform en OCI</h1></body></html>" | sudo tee /var/www/html/index.html
