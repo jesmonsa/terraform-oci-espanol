@@ -29,3 +29,8 @@ variable "instance_image_ocid" {
     "us-phoenix-1" = "ocid1.image.oc1.phx.your_image_ocid_here"
   }
 }
+
+variable "ssh_public_key_path" {
+  description = "Path to the public SSH key"
+  default     = "~/.ssh/id_rsa.pub"
+}
